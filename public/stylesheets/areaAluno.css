@@ -124,11 +124,10 @@ header{
     list-style: none;
 }
 
-.sidebar hr{
-    width: 100%;
-    color: #fff4be;
-    background-color: #fff4be;
-    border: 1px solid #fff4be;
+.separador{
+    width: 12rem;
+    height: .1rem;
+    background-color: #fff4be3b;
 }
 
 .log a{
