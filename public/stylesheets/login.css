@@ -1,0 +1,111 @@
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background: linear-gradient(to right, rgb(17, 54, 71), rgb(116, 26, 26), rgb(17, 54, 71));
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
+
+
+.login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 50%;
+    max-height: 50%;
+    color: #113647;
+    background-color: #fff9da;
+    padding: 2rem;
+    margin: 2rem;
+    border-radius: 2rem;
+}
+.card{
+    background-color:linear-gradient(to right, #db142f, #113647);
+    padding: 20px;
+    border-radius: 1px;
+    width: 250px;
+}
+.card header{
+    padding-bottom: 50px;
+ 
+}
+
+h1{
+    color: #fff4be;
+    font-size: 3rem;
+}
+
+p{
+    margin-top: -.8rem;
+    color: #fff4be;
+    font-size: 1.5rem;
+}
+
+.card-content label{
+font-size: 20px;
+cursor: pointer;
+}
+
+.card-content-area{
+    display: flex;
+    flex-direction: column;
+    padding: 12px 0;
+}
+.card-content input{
+    margin-top: 10px;
+    font-size: 1rem;
+    padding: 0 5px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #db142e86;
+    outline: none;
+    color: #113647;
+
+}
+   
+
+.card-footer{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.card-footer .recuperar-senha{
+    border: none;
+    outline: none;
+    color: white;
+    text-decoration: none;
+
+}
+
+.card-footer a{
+    text-decoration: none;
+    text-align: center;
+    color: #db142f;
+}
+
+button{
+    color: #113647;
+    font-size: 1rem;
+    background-color: #fff9da;
+    border: 2px solid #113647;
+    border-radius: 1rem;
+    padding: .8rem;
+    cursor: pointer;
+}
+button:hover{
+    color: #fff4be;
+    font-size: 1rem;
+    background-color: #113647;
+    border: 2px solid #113647;
+    border-radius: 1rem;
+    padding: .8rem;
+
+    transition: all .5s;
+}

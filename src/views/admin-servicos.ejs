@@ -1,0 +1,41 @@
+<%- include('partials/header') %>
+
+<main>
+    <section>
+        <div class="container">
+            <h1>Gerenciamento Mohave</h1>
+            <table>
+                <caption>
+                    <div class="align-row">
+                        <h3>Serviços </h3>
+                        <a class="btn btn-success" href="../controllers/ServicoController.js/cadastrar">Adicionar</a>
+                    </div>
+                </caption>
+                <thead>
+                    <th>Nome</th>
+                    <th>Preço</th>
+                    <th>Descrição</th>
+                    <th>Ações</th>
+                </thead>
+                
+                <tbody>
+                    <% servicos.forEach(servico => { %>
+                    <tr>
+                        <td><img src="<%=personal.image %>" alt=""></td>
+                        <td><%= servico.nome %> </td>
+                        <td><%= servico.valor %> </td>
+                        <td><%= servico.descricao %> </td>
+                        <td class="acoes">
+                            <form action="/servicos/deletar/<%= servico.id %>?_method=DELETE" method="POST">
+                                <a href="/servicos/editar/<%= servico.id %>" class="btn">Editar</a>
+                                <button type="submit" class="btn btn-secondary">Deletar</button>
+                            </form>
+                        </td>    
+                    </tr>
+                <% })  %>    
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>
+<%- include('partials/footer') %>
