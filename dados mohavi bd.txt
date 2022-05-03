@@ -1,0 +1,29 @@
+INSERT INTO aulas
+(nome, periodo, cadastro_dt)
+VALUES
+('musculacao', 'manha', '2020-05-11');
+INSERT INTO aulas
+(nome, periodo, cadastro_dt)
+VALUES
+('yoga', 'tarde', '2020-05-11');
+INSERT INTO aulas
+(nome, periodo, cadastro_dt)
+VALUES
+('funcional', 'noite', '2020-05-11');
+
+INSERT INTO clientes
+(nome, sobrenome, matricula, cadastro_dt, altura, peso)
+VALUES
+('Eddie', 'Brock', '202001', '2020-08-28', '1.73', '90'),
+('Tony', 'Stark', '202002', '2020-01-16', '1.76', '86'),
+('Thomas', 'Shelby', '202003', '2021-04-24', '1.82', '78'),
+('Beth', 'Dutton', '202004', '2022-01-05', '1.63', '61'),
+('Jhon', 'Dutton', '202005', '2022-01-05', '1.88', '83');
+
+INSERT INTO personais
+(nome, sobrenome, especialidade, registro_cresf)
+VALUES
+('Nath', 'Romanov', 'yoga', '188302'),
+('Silco', 'Loki',  'funcional', '635941'),
+('Steve', 'Buck', 'musculacao', '160193');
+ 

@@ -15,3 +15,6 @@ module.exports = {
     }
 };
 
+//to do:
+//criar um AlunosController( aqui nesse aluno controller colocar as funções efetivamnte que deverão ser puxadas no banco de dados, ver a aula do bruno disso )
+
