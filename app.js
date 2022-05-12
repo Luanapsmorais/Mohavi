@@ -1,9 +1,24 @@
 var createError = require('http-errors');
 var express = require('express');
-var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var path = require('path');
+const path = require('path');
+
+
+const Sequelize = require('sequelize');
+const sequelize = new Sequelize('mohavi', 'root', '', {
+  host: 'localhost',
+  dialect: 'mysql'
+});
+
+sequelize.authenticate().then(function(){
+  console.log("Sucesso");
+}).catch(function(err){
+  console.log('Conexão inexistente');
+});
+
+
+
 
 var methodOverride = require('method-override');
 var session = require('express-session');
@@ -15,6 +30,7 @@ var areaAlunoRouter = require('./src/routes/areaAluno');
 var loginRouter = require('./src/routes/login');
 var cadastroAlunoRouter = require('./src/routes/cadastroAluno');
 var servicosRouter = require('./src/routes/servicos');
+
 
 var app = express();
 
