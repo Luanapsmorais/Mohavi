@@ -1,9 +1,5 @@
 const { Alunos } = require('sequelize')
 
-
-
-
-
 module.exports = (sequelize, dataTypes) => {
     class Alunos extends Model{
        
