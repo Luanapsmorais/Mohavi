@@ -36,7 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/areaAluno', areaAlunoRouter);
+app.use('/area-aluno', areaAlunoRouter);
 app.use('/login', loginRouter);
 app.use('/cadastroAluno', cadastroAlunoRouter);
 app.use('/servicos', servicosRouter);
