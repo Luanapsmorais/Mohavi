@@ -11,14 +11,14 @@ INSERT INTO aulas
 VALUES
 ('funcional', 'noite', '2020-05-11');
 
-INSERT INTO clientes
-(nome, sobrenome, matricula, cadastro_dt, altura, peso)
+INSERT INTO alunos
+(nome, sobrenome, matricula, cadastro_dt, altura, peso, email, senha)
 VALUES
-('Eddie', 'Brock', '202001', '2020-08-28', '1.73', '90'),
-('Tony', 'Stark', '202002', '2020-01-16', '1.76', '86'),
-('Thomas', 'Shelby', '202003', '2021-04-24', '1.82', '78'),
-('Beth', 'Dutton', '202004', '2022-01-05', '1.63', '61'),
-('Jhon', 'Dutton', '202005', '2022-01-05', '1.88', '83');
+('Eddie', 'Brock', '202001', '2020-08-28', '1.73', '90', 'eddie@mail.com', '123456'),
+('Tony', 'Stark', '202002', '2020-01-16', '1.76', '86', 'tony@mail.com', '123456'),
+('Thomas', 'Shelby', '202003', '2021-04-24', '1.82', '78', 'thomas@mail.com', '123456'),
+('Beth', 'Dutton', '202004', '2022-01-05', '1.63', '61', 'beth@mail.com', '123456'),
+('Jhon', 'Dutton', '202005', '2022-01-05', '1.88', '83', 'jhon@mail.com', '123456');
 
 INSERT INTO personais
 (nome, sobrenome, especialidade, registro_cresf)
