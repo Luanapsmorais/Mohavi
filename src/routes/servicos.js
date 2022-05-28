@@ -8,17 +8,19 @@ const multer = require('../middlewares/multer')
 
   
 
-router.get('/cadastrar', ServicoController.editar);
-router.post('/cadastrar', multer.single('servico-img'), validadorCadastroServicos, ServicoController.criar);
 
-router.get('/', ServicoController.index);
-router.get('/admin', auth, ServicoController.admin);
+router.post('/cadastrar', multer.single('servico-img'), validadorCadastroServicos, AulasController.criar);
+router.get('/cadastrar', AulasController.editar);
+
+router.get('/', AulasController.index);
+router.get('/admin', auth, AulasController.admin);
 
 
-router.get('/editar/:id', ServicoController.editar);
-router.put('/editar/:id', multer.single('servico-img'), validadorCadastroServicos, ServicoController.atualizar);
 
-router.delete('/deletar/:id', ServicoController.deletar);
+router.put('/editar/:id', multer.single('servico-img'), validadorCadastroServicos, AulasController.atualizar);
+router.get('/editar/:id', AulasController.editar);
+
+router.delete('/deletar/:id', AulasController.deletar);
 
 
 module.exports = router; 

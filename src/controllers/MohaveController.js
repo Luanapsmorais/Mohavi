@@ -1,17 +1,17 @@
-const ServicoModel = require('../models/ServicoModel');
+const AulaModel = require('../models/AulaModel');
 
 module.exports = {
     index: (req, res) => {
-        const servicos = ServicoModel.index();
-        return res.render('index', { servicos });
+        const aulas = AulaModel.index();
+        return res.render('index', { aulas });
     },
 
     cadastro: (req, res) => {
-        let servico
+        let aula
         if (req.params.id){
-         servico = ServicoModel.index();
+         servico = AulaModel.index();
         }
-        return res.render('admin-cadastro', { servico });
+        return res.render('admin-cadastro', { aulas });
     }
 };
 

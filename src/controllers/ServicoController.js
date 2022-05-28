@@ -1,15 +1,16 @@
 const ServicoModel = require('../models/ServicoModel');
 const { validationResult } = require('express-validator');
+const AulasModel = require('../models/AulaModel')
 
 module.exports = {
     index: (req, res) => {
-    const servicos = ServicoModel.index();
-    return res.render('servicos', { servicos });
+    const Aulas = AulasModel.index();
+    return res.render('aulas', { Aulas });
     },
 
     admin: (req, res) => {
-        const servicos = ServicoModel.index();
-        return res.render('admin-servicos', { servicos });
+        const aulas = AulasModel.index();
+        return res.render('admin-aulas', { aulas });
         },
 
     editar: (req, res) => {
@@ -19,7 +20,7 @@ module.exports = {
         const erros = validationResult(req).errors;
         
         if(id){
-        servico = ServicoModel.buscar(id)
+        aula = AulasModel.buscar(id)
         } 
         return res.render('cadastro-edicao'), { erros, servico };
     },
@@ -53,7 +54,7 @@ module.exports = {
 
     deletar: (req, res) => {
         const { id } = req.params;
-        ServicoModel.deletar (id);
-        return res.redirect('/servicos/admin')
+        AulasModel.deletar (id);
+        return res.redirect('/aulas/admin')
     }
 };

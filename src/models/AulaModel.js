@@ -1,4 +1,4 @@
-const MohaveModel = {
+const AulaModel = {
 
 
     obterinformacoes: () => ([
@@ -9,4 +9,4 @@ const MohaveModel = {
 
 };
 
-module.exports = MohaveModel
+module.exports = AulaModel
