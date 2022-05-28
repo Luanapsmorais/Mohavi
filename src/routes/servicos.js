@@ -1,6 +1,6 @@
 const express = require ('express');
 const router = express.Router();
-const ServicoController = require('../controllers/ServicoController');
+const AulaController = require('../controllers/AulaController');
 const upload = require('../middlewares/multer');
 const auth = require('../middlewares/auth');
 
