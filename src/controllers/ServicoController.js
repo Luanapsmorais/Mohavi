@@ -1,40 +1,40 @@
-const ServicoModel = require('../models/ServicoModel')
+const AulasModel = require('../models/AulaModel')
 
 module.exports = {
     index: (req, res) => {
-    const servicos = ServicoModel.index();
-    return res.render('servicos', { servicos });
+    const Aulas = AulasModel.index();
+    return res.render('aulas', { Aulas });
     },
 
     admin: (req, res) => {
-        const servicos = ServicoModel.index();
-        return res.render('admin-servicos', { servicos });
+        const aulas = AulasModel.index();
+        return res.render('admin-aulas', { aulas });
         },
 
     editar: (req, res) => {
         const { id } = req.params;
-        let servico = null
+        let aula = null
         if(id){
-        servico = ServicoModel.buscar(id)
+        aula = AulasModel.buscar(id)
         } 
-        return res.render('cadastro-edicao'), { servico };
+        return res.render('cadastro-edicao'), { aula };
     },
 
     criar: (req, res) => {
         const { body, file } = req;
-        ServicoModel.criar(body, file);
-        return res.redirect('/servicos/admin');
+        AulasModel.criar(body, file);
+        return res.redirect('/aulas/admin');
     },
 
     atualizar: (req, res) => {
         const { id } = req.params;
-        ServicoModel.atualizar(id, req.body);
-        return res.redirect('/servicos/admin');
+        AulasModel.atualizar(id, req.body);
+        return res.redirect('/aulas/admin');
     },
 
     deletar: (req, res) => {
         const { id } = req.params;
-        ServicoModel.deletar (id);
-        return res.redirect('/servicos/admin')
+        AulasModel.deletar (id);
+        return res.redirect('/aulas/admin')
     }
 };

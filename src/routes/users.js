@@ -2,11 +2,11 @@
 var express = require('express');
 var router = express.Router();
 
-const UsuarioController = require('../controllers/usuarioController');
+const AlunoController = require('../controllers/alunoController');
 
-router.get('/cadastro', UsuarioController.form);
+router.get('/cadastro', AlunoController.form);
 
-//router.post('/cadastro', UsuarioController.criar);
+//router.post('/cadastro', AlunoController.criar);
 
 module.exports = router;
 

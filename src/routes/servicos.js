@@ -6,17 +6,17 @@ const auth = require('../middlewares/auth');
 
 
 
-router.get('/cadastrar', ServicoController.editar);
-router.post('/cadastrar', upload.single('servico-img'), ServicoController.criar);
+router.get('/cadastrar', AulaController.editar);
+router.post('/cadastrar', upload.single('aula-img'), AulaController.criar);
 
-router.get('/', ServicoController.index);
-router.get('/admin', auth, ServicoController.admin);
+router.get('/', AulaController.index);
+router.get('/admin', auth, AulaController.admin);
 
 
-router.get('/editar/:id', ServicoController.editar);
-router.put('/editar/:id', upload.single('servico-img'), ServicoController.atualizar);
+router.get('/editar/:id', AulaController.editar);
+router.put('/editar/:id', upload.single('aula-img'), AulaController.atualizar);
 
-router.delete('/deletar/:id', ServicoController.deletar);
+router.delete('/deletar/:id', AulaController.deletar);
 
 
 module.exports = router; 
