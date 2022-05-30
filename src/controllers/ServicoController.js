@@ -1,4 +1,5 @@
-const ServicoModel = require('../models/ServicoModel')
+const ServicoModel = require('../models/ServicoModel');
+const { validationResult } = require('express-validator');
 
 module.exports = {
     index: (req, res) => {
@@ -14,23 +15,41 @@ module.exports = {
     editar: (req, res) => {
         const { id } = req.params;
         let servico = null
+
+        const erros = validationResult(req).errors;
+        
         if(id){
         servico = ServicoModel.buscar(id)
         } 
-        return res.render('cadastro-edicao'), { servico };
+        return res.render('cadastro-edicao'), { erros, servico };
     },
 
     criar: (req, res) => {
         const { body, file } = req;
-        ServicoModel.criar(body, file);
-        return res.redirect('/servicos/admin');
-    },
+        const erros = validationResult(req).errors;
+    
+        if (!erros.length) {
+          ServicoModel.criar(body, file);
+          return res.redirect('/servicos/admin');
+        }
+    
+        return res.render('cadastro-edicao', { erros, servico: null })
+      },
 
-    atualizar: (req, res) => {
+      atualizar: (req, res) => {
         const { id } = req.params;
-        ServicoModel.atualizar(id, req.body);
-        return res.redirect('/servicos/admin');
-    },
+    
+        const erros = validationResult(req).errors;
+    
+        if (!erros.length) {
+          ServicoModel.atualizar(id, req.body);
+          return res.redirect('/servicos/admin');
+        }
+    
+        const servico = { id, ...req.body };
+    
+        return res.render('cadastro-edicao', { erros, servico })
+      },
 
     deletar: (req, res) => {
         const { id } = req.params;
