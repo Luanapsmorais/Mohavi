@@ -2,9 +2,9 @@
 var express = require('express');
 var router = express.Router();
 
-const AlunoController = require('../controllers/alunoController');
+const AlunosController = require('../controllers/AlunosController');
 
-router.get('/cadastro', AlunoController.form);
+router.get('/cadastro', AlunosController.form);
 
 //router.post('/cadastro', AlunoController.criar);
 

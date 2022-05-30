@@ -1,13 +1,13 @@
-const AulasModel = require('../models/AulaModel')
+const AulaModel = require('../models/AulaModel')
 
 module.exports = {
     index: (req, res) => {
-    const Aulas = AulasModel.index();
-    return res.render('aulas', { Aulas });
+    const Aulas = AulaModel.index();
+    return res.render('aulas', { Aula });
     },
 
     admin: (req, res) => {
-        const aulas = AulasModel.index();
+        const aulas = AulaModel.index();
         return res.render('admin-aulas', { aulas });
         },
 
@@ -15,26 +15,26 @@ module.exports = {
         const { id } = req.params;
         let aula = null
         if(id){
-        aula = AulasModel.buscar(id)
+        aula = AulaModel.buscar(id)
         } 
-        return res.render('cadastro-edicao'), { aula };
+        return res.render('cadastro-edicao'), { Aulas };
     },
 
     criar: (req, res) => {
         const { body, file } = req;
-        AulasModel.criar(body, file);
+        AulaModel.criar(body, file);
         return res.redirect('/aulas/admin');
     },
 
     atualizar: (req, res) => {
         const { id } = req.params;
-        AulasModel.atualizar(id, req.body);
+        AulaModel.atualizar(id, req.body);
         return res.redirect('/aulas/admin');
     },
 
     deletar: (req, res) => {
         const { id } = req.params;
-        AulasModel.deletar (id);
+        AulaModel.deletar (id);
         return res.redirect('/aulas/admin')
     }
 };
