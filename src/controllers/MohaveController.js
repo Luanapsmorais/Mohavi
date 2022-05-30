@@ -11,7 +11,7 @@ module.exports = {
         if (req.params.id){
          servico = AulaModel.index();
         }
-        return res.render('admin-cadastro', { aulas });
+        return res.render('admin-cadastro', { aula });
     }
 };
 

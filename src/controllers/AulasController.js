@@ -1,28 +1,27 @@
-const ServicoModel = require('../models/ServicoModel');
 const { validationResult } = require('express-validator');
-const AulasModel = require('../models/AulaModel')
+const AulaModel = require('../models/AulaModel');
 
 module.exports = {
     index: (req, res) => {
-    const Aulas = AulasModel.index();
-    return res.render('aulas', { Aulas });
+    const Aula = AulaModel.index();
+    return res.render('aulas', { Aula });
     },
 
     admin: (req, res) => {
-        const aulas = AulasModel.index();
+        const aulas = AulaModel.index();
         return res.render('admin-aulas', { aulas });
         },
 
     editar: (req, res) => {
         const { id } = req.params;
-        let servico = null
+        let aula = null
 
         const erros = validationResult(req).errors;
         
         if(id){
-        aula = AulasModel.buscar(id)
+        aula = AulaModel.buscar(id)
         } 
-        return res.render('cadastro-edicao'), { erros, servico };
+        return res.render('cadastro-edicao'), { erros, aula };
     },
 
     criar: (req, res) => {
@@ -30,11 +29,11 @@ module.exports = {
         const erros = validationResult(req).errors;
     
         if (!erros.length) {
-          ServicoModel.criar(body, file);
-          return res.redirect('/servicos/admin');
+          AulaModel.criar(body, file);
+          return res.redirect('/aulas/admin');
         }
     
-        return res.render('cadastro-edicao', { erros, servico: null })
+        return res.render('cadastro-edicao', { erros, aula: null })
       },
 
       atualizar: (req, res) => {
@@ -43,18 +42,18 @@ module.exports = {
         const erros = validationResult(req).errors;
     
         if (!erros.length) {
-          ServicoModel.atualizar(id, req.body);
-          return res.redirect('/servicos/admin');
+          AulaModel.atualizar(id, req.body);
+          return res.redirect('/aulas/admin');
         }
     
-        const servico = { id, ...req.body };
+        const aula = { id, ...req.body };
     
-        return res.render('cadastro-edicao', { erros, servico })
+        return res.render('cadastro-edicao', { erros, aula })
       },
 
     deletar: (req, res) => {
         const { id } = req.params;
-        AulasModel.deletar (id);
+        AulaModel.deletar (id);
         return res.redirect('/aulas/admin')
     }
 };

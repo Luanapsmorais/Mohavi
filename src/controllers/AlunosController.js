@@ -1,9 +1,9 @@
 const AlunoModel = require('../models/AlunoModel');
 
-const AlunoController = {
+const AlunosController = {
     form: (req, res) => {
         return res.render('cadastroAluno');
     },
 }
 
-module.exports = AlunoController;
+module.exports = AlunosController;

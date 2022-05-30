@@ -41,7 +41,7 @@ app.use('/users', usersRouter);
 app.use('/area-aluno', areaAlunoRouter);
 app.use('/login', loginRouter);
 app.use('/cadastroAluno', cadastroAlunoRouter);
-app.use('/aulas', AulasRouter);
+app.use('/aulas', aulasRouter);
 
 
 
