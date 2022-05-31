@@ -4,7 +4,7 @@ var router = express.Router();
 
 const UsuarioController = require('../controllers/usuarioController');
 
-router.get('/cadastrar', UsuarioController.editar);
+router.get('/cadastrar', UsuarioController.form);
 
 //router.post('/cadastro', UsuarioController.criar);
 
