@@ -4,6 +4,37 @@ const { uuid } = require('uuidv4');
 const path = require('path');
 const fs = require('fs');
 
+module.exports = (sequelize, dataTypes)=>{
+    const Aula = sequelize.define('Aula', 
+    {
+        id: {
+            type: dataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        nome: {
+            type: dataTypes.STRING,
+            allowNull: FALSE
+        },
+        cadastro_dt: {
+
+        },
+        alteracao_dt: {
+
+        },
+        turno_id: {
+            type: dataTypes.STRING,
+            allowNull: FALSE
+        }
+    }, {
+        tableName: 'aulas',
+        timeStamps: false
+    });
+    return Aula;
+}
+
+
+/* Código antigo ref. serviço que foi descontinuado e transformado em aula */
 module.exports = {
     servicos: [
         { 

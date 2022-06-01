@@ -1,13 +1,13 @@
-const ServicoModel = require('../models/ServicoModel')
+const AulaModel = require('../models/AulaModel')
 
 module.exports = {
     index: (req, res) => {
-    const servicos = ServicoModel.index();
+    const aulas = AulaModel.index();
     return res.render('servicos', { servicos });
     },
 
     admin: (req, res) => {
-        const servicos = ServicoModel.index();
+        const servicos = AulaModel.index();
         return res.render('admin-servicos', { servicos });
         },
 
@@ -15,26 +15,26 @@ module.exports = {
         const { id } = req.params;
         let servico = null
         if(id){
-        servico = ServicoModel.buscar(id)
+        servico = AulaModel.buscar(id)
         } 
         return res.render('cadastro-edicao'), { servico };
     },
 
     criar: (req, res) => {
         const { body, file } = req;
-        ServicoModel.criar(body, file);
+        AulaModel.criar(body, file);
         return res.redirect('/servicos/admin');
     },
 
     atualizar: (req, res) => {
         const { id } = req.params;
-        ServicoModel.atualizar(id, req.body);
+        AulaModel.atualizar(id, req.body);
         return res.redirect('/servicos/admin');
     },
 
     deletar: (req, res) => {
         const { id } = req.params;
-        ServicoModel.deletar (id);
+        AulaModel.deletar (id);
         return res.redirect('/servicos/admin')
     }
 };

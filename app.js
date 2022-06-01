@@ -14,7 +14,7 @@ var usersRouter = require('./src/routes/users');
 var areaAlunoRouter = require('./src/routes/areaAluno');
 var loginRouter = require('./src/routes/login');
 var cadastroAlunoRouter = require('./src/routes/cadastroAluno');
-var servicosRouter = require('./src/routes/servicos');
+var aulasRouter = require('./src/routes/aulas');
 
 var app = express();
 
@@ -39,7 +39,7 @@ app.use('/users', usersRouter);
 app.use('/area-aluno', areaAlunoRouter);
 app.use('/login', loginRouter);
 app.use('/cadastroAluno', cadastroAlunoRouter);
-app.use('/servicos', servicosRouter);
+app.use('/servicos', aulasRouter);
 
 
 
