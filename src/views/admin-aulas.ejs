@@ -7,8 +7,8 @@
             <table>
                 <caption>
                     <div class="align-row">
-                        <h3>Serviços </h3>
-                        <a class="btn btn-success" href="../controllers/ServicoController.js/cadastrar">Adicionar</a>
+                        <h3>Aulas </h3>
+                        <a class="btn btn-success" href="../controllers/AulaController.js/cadastrar">Adicionar</a>
                     </div>
                 </caption>
                 <thead>
@@ -19,15 +19,15 @@
                 </thead>
                 
                 <tbody>
-                    <% servicos.forEach(servico => { %>
+                    <% aulas.forEach(aula => { %>
                     <tr>
                         <td><img src="<%=personal.image %>" alt=""></td>
-                        <td><%= servico.nome %> </td>
-                        <td><%= servico.valor %> </td>
-                        <td><%= servico.descricao %> </td>
+                        <td><%= aula.nome %> </td>
+                        <td><%= aula.valor %> </td>
+                        <td><%= aula.descricao %> </td>
                         <td class="acoes">
-                            <form action="/servicos/deletar/<%= servico.id %>?_method=DELETE" method="POST">
-                                <a href="/servicos/editar/<%= servico.id %>" class="btn">Editar</a>
+                            <form action="/aulas/deletar/<%= aula.id %>?_method=DELETE" method="POST">
+                                <a href="/aulas/editar/<%= aula.id %>" class="btn">Editar</a>
                                 <button type="submit" class="btn btn-secondary">Deletar</button>
                             </form>
                         </td>    
