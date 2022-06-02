@@ -27,6 +27,8 @@ app.use(session({
   resave:true,
   saveUninitialized:true
 }))
+
+app.use(methodOverride('_method'));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -39,7 +41,7 @@ app.use('/users', usersRouter);
 app.use('/area-aluno', areaAlunoRouter);
 app.use('/login', loginRouter);
 app.use('/cadastroAluno', cadastroAlunoRouter);
-app.use('/servicos', aulasRouter);
+app.use('/aulas', aulasRouter);
 
 
 

@@ -1,4 +1,4 @@
-const MohaveModel = require('../models/MohaveModel');
+const AulaModel = require('../models/AulaModel');
 
 const LoginController = {
     index: (req, res) => {

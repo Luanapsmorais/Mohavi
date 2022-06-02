@@ -4,39 +4,8 @@ const { uuid } = require('uuidv4');
 const path = require('path');
 const fs = require('fs');
 
-module.exports = (sequelize, dataTypes)=>{
-    const Aula = sequelize.define('Aula', 
-    {
-        id: {
-            type: dataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true
-        },
-        nome: {
-            type: dataTypes.STRING,
-            allowNull: FALSE
-        },
-        cadastro_dt: {
-
-        },
-        alteracao_dt: {
-
-        },
-        turno_id: {
-            type: dataTypes.STRING,
-            allowNull: FALSE
-        }
-    }, {
-        tableName: 'aulas',
-        timeStamps: false
-    });
-    return Aula;
-}
-
-
-/* Código antigo ref. serviço que foi descontinuado e transformado em aula */
 module.exports = {
-    servicos: [
+  aula: [
         { 
             id1:  1,
             nome: 'Consultoria Fitness',
@@ -60,38 +29,38 @@ module.exports = {
 
 
     index () {
-        return this.servicos
+        return this.aulas
     },
 
     criar ( {nome, valor, descricao}, File){
 
         if (!nome || !valor || !descricao) return
         const filePatch = File ? path.join('/images/uploads', File.filename) : ''
-        this.servicos.push({ id: uuid(), nome, valor, descricao, image: filePatch});
+        this.aulas.push({ id: uuid(), nome, valor, descricao, image: filePatch});
     },
 
     buscar (id) {
-        return this.servicos.find(servico => servico.id == id);
+        return this.aulas.find(aula => aula.id == id);
     },
 
     atualizar (id, {nome, valor, descricao }) {
         if (!id) return
         if (!nome || !valor || !descricao) return
-        const servico = this.buscar(id);
+        const aula = this.buscar(id);
 
-        servico.nome = nome;
-        servico.valor = valor;
-        servico.descricao = descricao;
+        aula.nome = nome;
+        aula.valor = valor;
+        aula.descricao = descricao;
     },
 
     deletar (id) {
         if (!id) return
-        const servico = this.buscar(id);
-        const filePatch = servico.image;
+        const aula = this.buscar(id);
+        const filePatch = this.aula.image;
 
         fs.unlink('public' + filePatch, (err) => console.log('err'));
 
-        const index = this.servicos.findIndex(servico => servico.id == id);
+        const index = this.aulas.findIndex(aula =>aula.id == id);
     }
 
 };
