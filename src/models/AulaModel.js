@@ -26,6 +26,13 @@ module.exports=()=>{
         tableName: 'aulas',
         timestamp: false
     });
+    Aula.associate = (models)=>{
+        Aula.hasssMany(models.Turno, {
+            foreignKey: 'turnos_id',
+            as:'turnosAula'
+        })
+    }
+
     return Aula;
 }
 
