@@ -1,10 +1,37 @@
-
-
 const { uuid } = require('uuidv4');
 const path = require('path');
 const fs = require('fs');
 
+module.exports=()=>{
+    const Aula = sequelize.define('Aula', {
+        id: {
+            type: dataTypes.INTEGER,
+            PRIMARYkEY: TRUE,
+            autoIncrement: true,
+            allowNull: false
+        }, 
+        cadastro_dt: {
+            type: dataType.DATE,
+            allowNull: false
+        }, 
+        alteracao_dt: {
+            type: dataType.DATE,
+            allowNull: false
+        },
+        turnos_id: {
+
+        }
+
+    }, {
+        tableName: 'aulas',
+        timestamp: false
+    });
+    return Aula;
+}
+
+
 module.exports = {
+//Código antigo mantido por segurança
   aula: [
         { 
             id1:  1,
@@ -61,6 +88,8 @@ module.exports = {
         fs.unlink('public' + filePatch, (err) => console.log('err'));
 
         const index = this.aulas.findIndex(aula =>aula.id == id);
+
+
     }
 
 };
