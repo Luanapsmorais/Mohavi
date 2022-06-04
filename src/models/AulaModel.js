@@ -18,16 +18,13 @@ module.exports=()=>{
             type: dataType.DATE,
             allowNull: false
         },
-        turnos_id: {
-
-        }
 
     }, {
         tableName: 'aulas',
         timestamp: false
     });
     Aula.associate = (models)=>{
-        Aula.hasssMany(models.Turno, {
+        Aula.hasMany(models.Turno, {
             foreignKey: 'turnos_id',
             as:'turnosAula'
         })
