@@ -26,7 +26,7 @@ module.exports=()=>{
     Aula.associate = (models)=>{
         Aula.hasMany(models.Turno, {
             foreignKey: 'turnos_id',
-            as:'turnosAula'
+            as:'turnos'
         })
     }
 
