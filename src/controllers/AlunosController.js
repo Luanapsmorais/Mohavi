@@ -1,9 +1,15 @@
-const AlunoModel = require('../models/AlunoModel');
+const alunosServices = require('../services/alunosServices')
 
-const AlunosController = {
-    form: (req, res) => {
-        return res.render('cadastroAluno');
+const alunosContoller  = {
+    create: async (req, res) => {
+        const {
+        nome, email, tel, senha
+        } = req.body
+
+        const response = await alunosServices.create(nome, email, tel, senha)
+
+        res.json(response)
     },
 }
 
-module.exports = AlunosController;
+module.exports = AlunosContoller;
