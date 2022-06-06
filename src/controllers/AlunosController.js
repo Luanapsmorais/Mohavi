@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const alunosServices = require('../services/alunosServices')
 
 const alunosContoller  = {
@@ -13,3 +14,14 @@ const alunosContoller  = {
 }
 
 module.exports = alunosContoller;
+=======
+const AlunoModel = require('../models/AlunoModel');
+
+const AlunosController = {
+    form: (req, res) => {
+        return res.render('cadastroAluno');
+    },
+}
+
+module.exports = AlunosController;
+>>>>>>> develop
