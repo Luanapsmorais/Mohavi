@@ -10,6 +10,10 @@ module.exports=()=>{
             autoIncrement: true,
             allowNull: false
         }, 
+        nome: {
+            type: dataType.STRING,
+            allowNull: false
+        }, 
         cadastro_dt: {
             type: dataType.DATE,
             allowNull: false
