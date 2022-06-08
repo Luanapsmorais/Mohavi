@@ -1,4 +1,4 @@
-const AlunoModel = require('../models/AlunoModel');
+const AlunoModel = require('../models_antigo/sequelize/AlunoModel');
 
 const AlunosController = {
     form: (req, res) => {

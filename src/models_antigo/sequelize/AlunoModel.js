@@ -5,4 +5,6 @@ const AlunoModel = {
     ])
 };
 
+
+
 module.exports = AlunoModel
