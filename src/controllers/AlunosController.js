@@ -1,15 +1,26 @@
-const alunosServices = require('../services/alunosServices')
+const AlunoModel = {};
 
-const alunosContoller  = {
-    create: async (req, res) => {
-        const {
-        nome, email, tel, senha
-        } = req.body
-
-        const response = await alunosServices.create(nome, email, tel, senha)
-
-        res.json(response)
+module.exports = {
+    index: (req, res) => {
+    const Aluno = AlunoModel.index();
+    return res.render('alunos', { Aluno });
     },
+    create: (req, res) => {
+      return res.render('cadastrar-alunos');
+    },
+    store: async (req, res) => {
+      const {nome, valor, descricao, turno} = req.body;
+      const resultado = await AlunoModel.create({
+        nome, 
+        valor, 
+        descricao, 
+        turno
+      });
+      console.log(resultado);
+      res.redirect('alunos');
+    },
+    read: (req, res) => {
+      const alunos = AlunoModel.findAll();
+      return res.render('cadastrar-alunos', {alunos});
+    }
 }
-
-module.exports = alunosContoller;

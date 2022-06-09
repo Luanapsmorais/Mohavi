@@ -5,7 +5,7 @@
         <div class="container">
             <h1>Veja nossas aulas</h1>
 
-            <% for (const aulas of aulas) { %>
+            <% aulas.forEach(aula=>{ %>
             <article>
                 <% if (aula.image) { %>
                 <img src=" /images/<%= aula.image %>" alt=""> 
@@ -19,7 +19,7 @@
                     <a href="#" class="btn btn-primary">Escolher</a>
                 </div>
             </article>
-            <% } %>
+            <% }) %>
         </div>
     </section>
 </main>

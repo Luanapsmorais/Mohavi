@@ -1,0 +1,30 @@
+<%- include('partials/header') %>
+
+<main>
+    <div>
+        <h1>Cadastro de Aulas</h1>
+    </div>
+    <div>
+        <form action="/cadastrar-aulas" method="post">
+
+            <label for="nome-aula">Nome</label>
+            <input type="text" name="nome-aula" id="nome-aula">
+
+            <label for="valor-aula">Valor</label>
+            <input type="number" name="valor-aula" id="valor-aula">
+
+            <label for="desc-aula">Descrição</label>
+            <input type="text" name="desc-aula" id="desc-aula">
+
+            <select name="turno-aula" id="turno-aula">
+                <option></option>
+                <option value="manha">Manhã</option>
+                <option value="tarde">Tarde</option>
+                <option value="noite">Noite</option>
+            </select>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
+</main>
+<%- include('partials/footer') %>

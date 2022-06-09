@@ -1,12 +1,7 @@
 var express = require('express');
-const MohaveController = require('../controllers/MohaveController');
+const AulasController = require('../controllers/AulasController');
 var router = express.Router();
 
-router.get('/', MohaveController.index);
+router.get('/', (req, res)=> res.render("index"));
 
 module.exports = router;
-
-
-
-
-

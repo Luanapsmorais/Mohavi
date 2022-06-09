@@ -1,12 +1,31 @@
 const { validationResult } = require('express-validator');
-const AulaModel = require('../models/AulaModel');
+const { Aula } = require('../models');
 
 module.exports = {
-    index: (req, res) => {
-    const Aula = AulaModel.index();
-    return res.render('aulas', { Aula });
+    create: (req, res) => {
+      return res.render('cadastrar-aulas');
+    },
+    store: async (req, res) => {
+      const {nome, valor, descricao, turno} = req.body;
+      const resultado = await Aula.create({
+        nome, 
+        valor, 
+        descricao, 
+        turno
+      });
+      console.log(resultado);
+      res.redirect('aulas');
+    },
+    read: async (req, res) => {
+      console.log(Aula);
+      const aulas = await Aula.findAll();
+      return res.render('aulas', {aulas});
     },
 
+
+
+
+    ///Código antigo
     admin: (req, res) => {
         const aulas = AulaModel.index();
         return res.render('admin-aulas', { aulas });
