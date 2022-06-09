@@ -3,7 +3,7 @@ var router = express.Router();
 
 const AlunosController = require('../controllers/AlunosController');
 
-router.get('/cadastro', AlunosController.form);
+router.get('/cadastro', AlunosController.create);
 
 //router.post('/cadastro', AlunoController.criar);
 
