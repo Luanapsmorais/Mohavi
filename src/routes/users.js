@@ -1,15 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-const UsuarioController = require('../controllers/usuarioController');
-const AlunosController = require('../controllers/AlunosController')
+const AlunosController = require('../controllers/AlunosController');
 
-router.get('/cadastro', AlunosController.create);
+router.get('/cadastroAluno', AlunosController.create);
 
-//router.post('/cadastro', UsuarioController.criar);
-//router.post('/cadastro', AlunosController.store)
+//router.post('/cadastro', AlunoController.criar);
 
 module.exports = router;
-
-
-
