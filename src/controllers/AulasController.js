@@ -35,16 +35,16 @@ module.exports = {
         turno
       },
       {
-        where:{
-          id:id
-        }
+        where:{ id }
       })
       return res.redirect('aulas')
     },
     delete: async (req, res)=>{
+      const { id } = req.params;
       await Aula.destroy({
-        where: id
+        where: { id }
       })
+      return res.redirect('aulas')
     }
 }
 
