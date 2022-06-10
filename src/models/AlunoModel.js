@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 
 module.exports=(sequelize, dataTypes)=>{
-    const Aula = sequelize.define('Aula', {
+    const Aluno = sequelize.define('Aluno', {
         id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
@@ -14,16 +14,36 @@ module.exports=(sequelize, dataTypes)=>{
             type: dataTypes.STRING,
             allowNull: false
         }, 
-        valor: {
+        sobrenome: {
+            type: dataTypes.STRING,
+            allowNull: false
+        }, 
+        matricula: {
             type: dataTypes.INTEGER,
             allowNull: false
         }, 
-        descricao: {
+        email: {
             type: dataTypes.STRING,
             allowNull: false
         },
+        telefone: {
+            type: dataTypes.STRING,
+            allowNull: false
+        },
+        data_nascimento: {
+            type: dataTypes.DATE,
+            allowNull: false
+        },
+        altura: {
+            type: dataTypes.DECIMAL,
+            allowNull: false
+        },
+        peso: {
+            type: dataTypes.DECIMAL,
+            allowNull: false
+        },
     }, {
-        tableName: 'aulas',
+        tableName: 'alunos',
         timestamp: false
     });
     /*Aula.associate = (models)=>{
@@ -33,5 +53,5 @@ module.exports=(sequelize, dataTypes)=>{
         })
     }*/
 
-    return Aula;
+    return Aluno;
 }

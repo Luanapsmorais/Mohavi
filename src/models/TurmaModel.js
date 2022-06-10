@@ -3,27 +3,15 @@ const path = require('path');
 const fs = require('fs');
 
 module.exports=(sequelize, dataTypes)=>{
-    const Aula = sequelize.define('Aula', {
+    const Turma = sequelize.define('Turma', {
         id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
             allowNull: false
         }, 
-        nome: {
-            type: dataTypes.STRING,
-            allowNull: false
-        }, 
-        valor: {
-            type: dataTypes.INTEGER,
-            allowNull: false
-        }, 
-        descricao: {
-            type: dataTypes.STRING,
-            allowNull: false
-        },
     }, {
-        tableName: 'aulas',
+        tableName: 'turmas',
         timestamp: false
     });
     /*Aula.associate = (models)=>{
@@ -33,5 +21,5 @@ module.exports=(sequelize, dataTypes)=>{
         })
     }*/
 
-    return Aula;
+    return Turma;
 }

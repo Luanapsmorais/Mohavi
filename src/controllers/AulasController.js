@@ -21,11 +21,37 @@ module.exports = {
       const aulas = await Aula.findAll();
       return res.render('aulas', {aulas});
     },
+    edit: async (req, res)=>{
+      const {id} = req.params;
+      const aula = await Aula.findByPk(id);
+      return res.render('editar-aula', {aula})
+    },
+    update: async (req, res)=>{
+      const {nome, valor, descricao, turno} = req.body;
+      const resultado = await Aula.update({
+        nome,
+        valor,
+        descricao,
+        turno
+      },
+      {
+        where:{
+          id:id
+        }
+      })
+      return res.redirect('aulas')
+    },
+    delete: async (req, res)=>{
+      await Aula.destroy({
+        where: id:id
+      })
+    }
+}
 
 
 
 
-    ///Código antigo
+/*
     admin: (req, res) => {
         const aulas = AulaModel.index();
         return res.render('admin-aulas', { aulas });
@@ -74,5 +100,4 @@ module.exports = {
         const { id } = req.params;
         AulaModel.deletar (id);
         return res.redirect('/aulas/admin')
-    }
-};
+    }*/
