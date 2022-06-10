@@ -43,7 +43,7 @@ module.exports = {
     },
     delete: async (req, res)=>{
       await Aula.destroy({
-        where: id:id
+        where: id
       })
     }
 }
