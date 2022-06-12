@@ -6,16 +6,17 @@
             <h1>Veja nossas aulas</h1>
 
             <% aulas.forEach(aula=>{ %>
-            <article>
+            <article class="card-aula" <%= aula.id %>>
                 <% if (aula.image) { %>
                 <img src=" /images/<%= aula.image %>" alt=""> 
                 <% } else { %> 
                 <div class="thumb"></div>
                 <% } %>
-                <div class="info">
+                <div class="info" <%= produto.id %> >
                     <h2><%= aula.nome %> </h2>
                     <p><%= aula.valor %> </p>
                     <p><%= aula.descricao %> </p>
+                    <p><%= aula.turno.nome %> </p>
                     <a href="#" class="btn btn-primary">Escolher</a>
                 </div>
             </article>

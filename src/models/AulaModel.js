@@ -15,23 +15,29 @@ module.exports=(sequelize, dataTypes)=>{
             allowNull: false
         }, 
         valor: {
-            type: dataTypes.INTEGER,
+            type: dataTypes.DECIMAL,
             allowNull: false
         }, 
         descricao: {
             type: dataTypes.STRING,
             allowNull: false
         },
+        turnos_id: {
+            type: dataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true,
+            allowNull: false
+        }
     }, {
         tableName: 'aulas',
         timestamp: false
     });
-    /*Aula.associate = (models)=>{
+    Aula.associate = (models)=>{
         Aula.hasMany(models.Turno, {
             foreignKey: 'turnos_id',
             as:'turno'
         })
-    }*/
+    }
 
     return Aula;
 }

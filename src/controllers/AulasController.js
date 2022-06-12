@@ -1,5 +1,5 @@
 const { validationResult } = require('express-validator');
-const { Aula } = require('../models');
+const { Aula, Turno } = require('../models');
 
 module.exports = {
     create: (req, res) => {
@@ -7,18 +7,24 @@ module.exports = {
     },
     store: async (req, res) => {
       const {nome, valor, descricao, turno} = req.body;
-      const resultado = await Aula.create({
+      const data = await Aula.create({
         nome, 
         valor, 
         descricao, 
         turno
       });
-      console.log(resultado);
+      console.log(data);
       res.redirect('aulas');
     },
     read: async (req, res) => {
       console.log(Aula);
-      const aulas = await Aula.findAll();
+      const aulas = await Aula.findAll({
+        include:{
+          model: Turno,
+          as: 'turno',
+          require: true
+        }
+      });
       return res.render('aulas', {aulas});
     },
     edit: async (req, res)=>{

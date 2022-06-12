@@ -18,12 +18,12 @@ module.exports=(sequelize, dataTypes)=>{
         tableName: 'turnos',
         timestamp: false
     });
-    /*Aula.associate = (models)=>{
-        Aula.hasMany(models.Turno, {
-            foreignKey: 'turnos_id',
-            as:'turno'
+    Turno.associate = (models)=>{
+        Turno.hasMany(models.Aula, {
+            foreignKey: 'id',
+            as:'aula'
         })
-    }*/
+    }
 
     return Turno;
 }
