@@ -21,12 +21,6 @@ module.exports=(sequelize, dataTypes)=>{
         descricao: {
             type: dataTypes.STRING,
             allowNull: false
-        },
-        turnos_id: {
-            type: dataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true,
-            allowNull: false
         }
     }, {
         tableName: 'aulas',
