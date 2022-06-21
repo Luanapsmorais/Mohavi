@@ -294,10 +294,7 @@ footer h2{
   }
 
 
-  body > main > header {
-
-  
-  button.reset {
+  button.reset  {
     margin-top: -.5rem;
     border: none;
     padding: 0.5rem;
@@ -386,3 +383,4 @@ footer h2{
     flex-flow: column;
   }
 
+}
