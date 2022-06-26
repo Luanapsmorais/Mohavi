@@ -24,6 +24,7 @@ body{
     padding: 2rem;
     margin: 2rem;
     border-radius: 2rem;
+    flex-direction: column;
 }
 .card{
     background-color:linear-gradient(to right, #db142f, #113647);

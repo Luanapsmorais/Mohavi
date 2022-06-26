@@ -1,44 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://kit.fontawesome.com/b00efd4dc1.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="/stylesheets/login.css">
-
-
-
-  <title>Mohavi | Login</title>
+<%- include('partials/header') %>
 
     <body>
         <h1>Mohavi</h1>
         <p>Seja Bem Vindo(a), Acesse sua conta!</p>
         <section class="login">
+
+            <% if (erros) { %>
+                <ul class="erros">
+                  <% erros.forEach(erro=> { %>
+                    <li>
+                      <%= erro.msg %>
+                    </li>
+                    <% }) %>
+                </ul>
+                <% } else if(sucess) { %>
+                  <ul class="erros">
+                    <% sucess.forEach(sucess=> { %>
+                      <li>
+                        <%= sucess.msg %>
+                      </li>
+                      <% }) %>
+                  </ul>
+                  <% } %>
             
-            <form class="card">
+            <form action="/alunos/login" method="POST" class="card">
 
                 <div class="card-content">
                     <div class="card-content-area">
-                        <label for="usuario">Email</label>
-                        <input type="text" id="usuario" autocomplete="off" placeholder="Email">
+                        <label for="email">Email</label>
+                        <input type="text" name="email" id="email"  placeholder="Email" required>
                     </div>
 
                     <div class="card-content-area">
-                        <label for="password">Senha</label>
-                        <input type="password" id="password" autocomplete="off" placeholder="Senha">
-                        <input type="checkbox" name="logado" id="">
-                        <label for="">Manter logado?</label>
+                        <label for="senha">Senha</label>
+                        <input name="senha" type="password" id="senha"  placeholder="Senha" required>
                     </div>
                 </div>
 
                 <div class="card-footer">
-                     <button type="submit" value="login" class="submit">Entrar</button>
+                     <button type="submit" class="submit">Entrar</button>
                 </div>
 
                 <div class="card-footer">
-                    <a href="/users/cadastro"> Cadastrar Aluno</a>            
+                    <a href="/alunos/cadastro"> Cadastrar Aluno</a>            
                </div>
 
                 <div class="card-footer">
@@ -51,4 +55,4 @@
        
     </body>
 
-    </html>
+    <%- include('partials/footer') %>

@@ -1,7 +1,7 @@
-module.exports={
+module.exports = {
     username: 'root',
-    password: 'Olps.0610',
+    password: '',
     database: 'mohave',
     host: 'localhost',
     dialect: 'mysql'
-}
+  }

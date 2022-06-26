@@ -1,93 +1,88 @@
 <%- include('partials/header') %>
 
-<main>
-  <header>
-    <div class="campo">
-      <h1 id="titulo">Cadastro de Aluno</h1>
-      <p id="subtitulo">Complete suas informações</p>
-      <br>
-    </div>
-  <section>
-    <form action="/register" method="POST" enctype="multipart/form-data">
-  
-    <form>
-        <fieldset class="grupo">
-          <div class="campo">
-            <label for="nome"><strong>Nome Completo</strong></label>
-            <input type="text" name="nome" id="nome" placeholder="Nome completo" required>
-          </div>
-        </fieldset> 
 
-          <div class="campo">
-            <label for="email"><strong>Email</strong></label>
-            <input type="email" name="email" id="email" placeholder="Email" required>
-          </div>
+<div>
+    <h1 id="titulo">Cadastro de Aluno</h1>
+    <p id="subtitulo">Complete suas informações</p>
+    <br>
+  </div>
 
-          <div class="campo">
-            <label for="telefone"><strong>Telefone</strong></label>
-            <input type="tel" name="tel" id="tel" placeholder="(xx)0000-0000" required>
-          </div>
+  <section class="cadastro-aluno">
 
-          <div class="campo">
-            <label for="senha"><strong>Senha</strong></label>
-            <input type="password" name="senha" id="senha" placeholder="Digite sua senha" required>
-          </div>
+    <% if (erros) { %>
+      <ul class="erros">
+        <% erros.forEach(erro=> { %>
+          <li>
+            <%= erro.msg %>
+          </li>
+          <% }) %>
+      </ul>
+      <% }  %>
 
-          <div class="campo">
-            <label><strong>Qual seu objetivo ao se tornar aluno da Mohave</strong></label>
+    <form class="card-cadastro" enctype="multipart/form-data" action="/alunos/cadastro" method="POST">
 
-            <label><input type="radio" name="saude" value="saude" checked>Saúde</label>
-            <label><input type="radio" name="autoestima" value="autoestima">Melhorar auto-estima</label>
-            <label><input type="radio" name="peso" value="peso">Perder Peso</label>
+      <div class="card-content-cadastro">
+        <div class="card-content-area">
+          <label for="nome">Nome</label>
+          <input type="text" name="nome" autocomplete="off" placeholder="nome">
+        </div>
 
-          </div>
+        <div class="card-content-area">
+          <label for="sobrenome">sobrenome</label>
+          <input type="text" name="sobrenome" autocomplete="off" placeholder="sobrenome">
+        </div>
 
-          <div class="campo">
-            <label for="perfil"><strong>Perfil de treino</strong></label>
-            <select id="perfil" required>
-              <option selected disabled value="">Selecione</option>
-              <option>Iniciante - 1 a 2 treinos por semana</option>
-              <option>Intermediário - 3 a 5 treinos por semana</option>
-              <option>Atleta - treino todos os dias da semana</option>
-            </select>
-          </div>
 
-        <fieldset class="grupo">
-          <div id="check">
-            <label><strong>Selecione as modalidades de seu interesse:</strong></label><br><br>
-            <input type="checkbox" id="musculacao" name="availability" value="musculacao">
-            <label for="musculacao"> Musculação</label>
-            <input type="checkbox" id="luta" name="luta" value="luta">
-            <label for="luta"> Luta</label>
-            <input type="checkbox" id="yoga" name="yoga" value="yoga">
-            <label for="yoga"> Yoga</label>
-            <input type="checkbox" id="spinning" name="spinning" value="spinning">
-            <label for="spinning"> Spinning</label>
-          </div>
-        </fieldset>
+            <div class="card-content-area">
+              <label for="dataNasc">Data de nascimento</label>
+              <input type="date" name="dataNasc" name="dataNasc" autocomplete="off" placeholder="dataNasc">
+            </div>
 
-          <div class="campo">
-        <br>
-          <label for="mensagem"><strong>Qual sua rotina de treinos atualmente? </strong></label>
-          <textarea rows="6" style="width: 26em" id="experiencia" name="experiencia"></textarea>
-          </div>
-          <div class="alignment">
-          <div class="cadastrar">
-          <button class="botao" type="submit" onsubmit="">Cadastrar</button>
-          </div>
+              <div class="card-content-area">
+                <label for="altura">Altura</label>
+                <input type="number" name="altura" autocomplete="off" placeholder="altura">
+              </div>
 
-          <div>
-          <button class="reset" type="reset">Limpar</button>
-          </div> 
+              <div class="card-content-area">
+                <label for="peso">Peso</label>
+                <input type="text" name="peso" autocomplete="off" placeholder="peso">
+              </div>
 
-          <div class="field">
-          <label for="foto">Escolha uma foto para o seu perfil</label>
-          <input type="file" id="foto" name="foto"  multiple>
-          </div>
-    
+              <div class="card-content-area">
+                <label for="email">Email</label>
+                <input type="email" name="email" autocomplete="off" placeholder="email">
+              </div>
+
+              <div class="card-content-area">
+                <label for="telefone">telefone</label>
+                <input type="text" name="telefone" autocomplete="off" placeholder="telefone">
+              </div>
+
+              <div class="card-content-area">
+                <label for="senha">Senha</label>
+                <input type="password" name="senha" autocomplete="off" placeholder="senha">
+              </div>
+
+              <div class="card-content-area">
+                <label for="confirmarSenha">Confirme sua Senha</label>
+                <input type="password" name="confirmarSenha" autocomplete="off" placeholder="Confirme sua Senha">
+              </div>
+
+              <input type="file" id="arquivo" name="arquivo" value="arquivo">
+              <label for="arquivo"> Insira imagem desejada.</label>
+
+
+            </div>
+
+            <div class="card-footer">
+              <button type="submit"  class="submit">Cadastrar</button>
+            </div>
+
+            <div class="card-footer">
+              <a href="/login" class="submit">Voltar</button>
+            </div>
     </form>
+  </section>
 
-  </body>
 
-</html>
-    <%- include('partials/footer') %>
+  <%- include('partials/footer') %>
