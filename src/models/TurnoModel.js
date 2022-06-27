@@ -16,7 +16,7 @@ module.exports=(sequelize, dataTypes)=>{
         }, 
     }, {
         tableName: 'turnos',
-        timestamp: false
+        timestamps: false
     });
     Turno.associate = (models)=>{
         Turno.hasMany(models.Aula, {

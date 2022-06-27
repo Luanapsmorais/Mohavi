@@ -10,7 +10,7 @@ router.post('/cadastrar', multer.single('aula-img'), validadorCadastroAulas, Aul
 router.get('/cadastrar/:id', AulasController.edit);
 router.post('/cadastrar-aulas', AulasController.store);
 
-router.get('/admin', auth, AulasController.admin);
+// router.get('/admin', auth, AulasController.admin);
 
 router.put('/editar/:id', multer.single('aula-img'), validadorCadastroAulas, AulasController.update);
 router.get('/editar/:id', AulasController.edit);

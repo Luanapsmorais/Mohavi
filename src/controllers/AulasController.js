@@ -19,7 +19,7 @@ module.exports = {
     read: async (req, res) => {
       console.log(Aula);
       const aulas = await Aula.findAll({
-        include:{
+        include: {
           model: Turno,
           as: 'turno',
           require: true

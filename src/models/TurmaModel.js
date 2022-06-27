@@ -12,7 +12,7 @@ module.exports=(sequelize, dataTypes)=>{
         }, 
     }, {
         tableName: 'turmas',
-        timestamp: false
+        timestamps: false
     });
     /*Aula.associate = (models)=>{
         Aula.hasMany(models.Turno, {
