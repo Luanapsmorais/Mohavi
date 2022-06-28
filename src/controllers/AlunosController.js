@@ -7,69 +7,75 @@ const { v4: uuid_v4 } = require('uuid');
 
 module.exports = {
 
-    // Abre a pagina de Cadastro
-    create: (req, res) => {
-      return res.render('cadastroAluno', { erros: null});
-    },
+  // Abre a pagina de Cadastro
+  create: (req, res) => {
+    return res.render('cadastroAluno', { erros: null});
+  },
 
-    // Cadastro de Aluno
+  async read (req, res) {
+    console.log(Aluno);
+    const alunos = await Aluno.findAll();
+    return res.render('alunos', { alunos });
+  },
 
-    async store (req, res) {
-      try{
-        const {
+  // Cadastro de Aluno
+
+  async store (req, res) {
+    try{
+      const {
+        nome,
+        sobrenome,
+        dataNasc,
+        altura,
+        peso,
+        email,
+        telefone,
+        senha,
+        confirmarSenha
+      } = req.body;
+
+      const erros = [];
+      const sucess = [];
+
+      const verificarAluno = await (Aluno.findOne({
+        where: {
+          email: email
+        }
+      }))
+
+      if (verificarAluno) {
+        erros.push({ msg: 'Aluno já cadastrado!' });
+        return res.render('cadastroAluno', { erros });
+      }
+
+      if (senha === confirmarSenha) {
+        const aluno = await Aluno.create({
+          matricula: uuid_v4(),
           nome,
           sobrenome,
-          dataNasc,
+          data_nascimento: dataNasc,
           altura,
           peso,
           email,
           telefone,
-          senha,
-          confirmarSenha
-        } = req.body;
+          senha: bcrypt.hashSync(senha, 12),
+        })
 
-        const erros = [];
-        const sucess = [];
-  
-        const verificarAluno = await (Aluno.findOne({
-          where: {
-            email: email
-          }
-        }))
-  
-        if (verificarAluno) {
-          erros.push({ msg: 'Aluno já cadastrado!' });
-          return res.render('cadastroAluno', { erros });
-        }
-  
-        if (senha === confirmarSenha) {
-          const aluno = await Aluno.create({
-            matricula: uuid_v4(),
-            nome,
-            sobrenome,
-            data_nascimento: dataNasc,
-            altura,
-            peso,
-            email,
-            telefone,
-            senha: bcrypt.hashSync(senha, 12),
-          })
-  
-          console.log(aluno)
-  
-          sucess.push({ msg: 'Aluno criado com sucesso!' });
-  
-          return res.render('login', { erros: null, sucess });
-  
-        } else {
-          erros.push({ msg: 'As senhas não conferem!' });
-          return res.render('cadastroAluno', { erros });
-        }
-      } catch(err){
-        console.log(err)
+        console.log(aluno)
+
+        sucess.push({ msg: 'Aluno criado com sucesso!' });
+
+        return res.render('login', { erros: null, sucess });
+
+      } else {
+        erros.push({ msg: 'As senhas não conferem!' });
+        return res.render('cadastroAluno', { erros });
       }
-    },
-    
+    } catch(err){
+      console.log(err)
+    }
+  },
+  
   async autenticar(req, res) {
     try {
       const requestUser = req.body;
@@ -108,6 +114,5 @@ module.exports = {
     } catch (erro) {
       console.log(erro);
     }
-  },
-
+  }
 }

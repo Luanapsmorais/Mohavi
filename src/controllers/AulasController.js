@@ -1,5 +1,5 @@
 const { validationResult } = require('express-validator');
-const { Aula } = require('../models');
+const { Aula, Turno } = require('../models');
 
 module.exports = {
     create: (req, res) => {
@@ -7,25 +7,57 @@ module.exports = {
     },
     store: async (req, res) => {
       const {nome, valor, descricao, turno} = req.body;
-      const resultado = await Aula.create({
+      const data = await Aula.create({
         nome, 
         valor, 
         descricao, 
         turno
       });
-      console.log(resultado);
+      console.log(data);
       res.redirect('aulas');
     },
     read: async (req, res) => {
       console.log(Aula);
-      const aulas = await Aula.findAll();
+      const aulas = await Aula.findAll({
+        include: {
+          model: Turno,
+          as: 'turno',
+          require: true
+        }
+      });
       return res.render('aulas', {aulas});
     },
+    edit: async (req, res)=>{
+      const {id} = req.params;
+      const aula = await Aula.findByPk(id);
+      return res.render('editar-aula', {aula})
+    },
+    update: async (req, res)=>{
+      const {nome, valor, descricao, turno} = req.body;
+      const resultado = await Aula.update({
+        nome,
+        valor,
+        descricao,
+        turno
+      },
+      {
+        where:{ id }
+      })
+      return res.redirect('aulas')
+    },
+    delete: async (req, res)=>{
+      const { id } = req.params;
+      await Aula.destroy({
+        where: { id }
+      })
+      return res.redirect('aulas')
+    }
+}
 
 
 
 
-    ///Código antigo
+/*
     admin: (req, res) => {
         const aulas = AulaModel.index();
         return res.render('admin-aulas', { aulas });
@@ -74,5 +106,4 @@ module.exports = {
         const { id } = req.params;
         AulaModel.deletar (id);
         return res.redirect('/aulas/admin')
-    }
-};
+    }*/
