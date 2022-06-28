@@ -1,8 +1,5 @@
 const { Aluno } = require('../models')
-const bcrypt = require('bcrypt');
-const { Op } = require("sequelize");
-const { Usuario, Review } = require('../models');
-const { validationResult } = require('express-validator');
+const bcrypt = require('bcryptjs');
 const { v4: uuid_v4 } = require('uuid');
 
 module.exports = {

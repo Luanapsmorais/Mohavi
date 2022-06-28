@@ -1,15 +1,15 @@
-module.exports = (sequelize, dataTypes)=>{
+module.exports = (sequelize, dataTypes) => {
     const Aluno = sequelize.define('Aluno', {
         id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
             allowNull: false
-        }, 
+        },
         matricula: {
             type: dataTypes.STRING,
             allowNull: false
-        }, 
+        },
         nome: {
             type: dataTypes.STRING,
             allowNull: false
@@ -17,11 +17,11 @@ module.exports = (sequelize, dataTypes)=>{
         sobrenome: {
             type: dataTypes.STRING,
             allowNull: false
-        }, 
+        },
         data_nascimento: {
             type: dataTypes.DATEONLY,
             allowNull: false
-        }, 
+        },
         altura: {
             type: dataTypes.INTEGER,
             allowNull: false
@@ -33,19 +33,18 @@ module.exports = (sequelize, dataTypes)=>{
         email: {
             type: dataTypes.STRING,
             allowNull: false
-          },
-          telefone: {
+        },
+        telefone: {
             type: dataTypes.STRING,
             allowNull: false
-          },
-          senha: {
+        },
+        senha: {
             type: dataTypes.STRING,
             allowNull: false
-            }
-
+        }
     }, {
         tableName: 'alunos',
-        timestamp: true
+        timestamps: false
     });
     /*Aula.associate = (models)=>{
         Aula.hasMany(models.Turno, {
