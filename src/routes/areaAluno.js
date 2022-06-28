@@ -4,8 +4,7 @@ const auth = require('../middlewares/auth')
 
 router.get('/', auth, function(req, res, next) {
 
-
-    res.render('area-aluno', { title: 'Área do Aluno' });
+    res.render('area-aluno', { title: 'Área do Aluno', aluno: req.session.aluno });
   });
 
   

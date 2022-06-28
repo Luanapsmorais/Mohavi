@@ -1,4 +1,4 @@
-body{
+main{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -44,6 +44,7 @@ p{
   margin-top: -.8rem;
   color: #fff4be;
   font-size: 1.5rem;
+  text-align: center;
 }
 
 .card-content-cadastro label{
@@ -274,7 +275,7 @@ footer h2{
   
 
   body > header {
-    justify-content: space-around;
+    justify-content: space-between;;
   }
 
 

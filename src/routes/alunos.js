@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-const AlunosController = require('../controllers/AlunosController')
+const AlunosController = require('../controllers/AlunosController');
 
 // Cadastrar alunos
 router.get('/cadastro', AlunosController.create);
@@ -23,6 +23,17 @@ router.post('/cadastro', upload.single('arquivo'), AlunosController.store);
 
 // Autenticar aluno
 router.post('/login', AlunosController.autenticar);
+
+// Editar aluno
+router.get('/editar/:id', AlunosController.formEditar);
+
+
+
+
+
+
+// Deslogar usuário
+router.get('/logout', AlunosController.logout);
 
 
 

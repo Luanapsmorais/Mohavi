@@ -9,6 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="/stylesheets/areaAluno.css">
+    <link rel="stylesheet" href="/stylesheets/cadastro-aluno.css">
+    
+
     <title>Área do aluno</title>
 </head>
 <body>
@@ -25,14 +28,13 @@
                 <div class="separador"></div>
                 <nav>
                     <ul>
-                        <a href="#"><li><i class='bx bx-calendar' ></i>Agenda</li></a>
-                        <a href="#"><li><i class='bx bx-chart' ></i>Progresso</li></a>
-                        <a href="#"><li><i class='bx bx-wallet' ></i>Pagamentos</li></a>
-                        <a href="../cadastroAluno/cadastro"><li><i class='bx bx-wallet' ></i>Cadastro</li></a>
-                        <a href="#"><li><i class='bx bx-user-voice' ></i>Indicar Amigo</li></a>
+                        <a href="/area-aluno"><li><i class='bx bx-calendar' ></i>Minhas aulas</li></a>
+                        <a href="#"><li><i class='bx bx-calendar' ></i>Turmas em Aberto</li></a>
+                        <a href="/alunos/editar/<%= aluno.matricula %> "><li><i class='bx bx-user' ></i>Meu Perfil</li></a>
                     </ul>
                 </nav>
             </div>
+            <!-- class='bx bx-chart' -->
 
 
 
@@ -42,6 +44,6 @@
 
         <div class="log">
             <a href=""><i class='bx bx-log-in-circle bx-md btn-login' alt="Entrar"></i></a>
-            <a href=""><i class='bx bx-log-out-circle bx-md' alt="Sair"></i></a>
+            <a href="/alunos/logout"><i class='bx bx-log-out-circle bx-md' alt="Sair"></i></a>
         </div>
     </header>

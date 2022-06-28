@@ -114,5 +114,18 @@ module.exports = {
     } catch (erro) {
       console.log(erro);
     }
+  },
+
+  formEditar (req, res) {
+
+    res.render('editarAluno', {erros: null, aluno: req.session.aluno})
+  },
+
+  logout(req, res) {
+
+    if (req.session) {
+      req.session.destroy();
+    }
+    return res.redirect('/')
   }
 }
