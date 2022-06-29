@@ -12,11 +12,20 @@
     100% {}
 }
 
+html {
+    height: 100%;
+    width: 100%;
+}
+
 body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 header{
@@ -29,7 +38,48 @@ header{
     background-image: linear-gradient(to right, #741a1a, #162735);
 }
 
-.menu{
+main.area-aluno {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    align-self: stretch;
+    flex-grow: 1;
+}
+
+main.area-aluno section.minhas-aulas {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    flex-grow: 1;
+    align-self: stretch;
+}
+
+main.area-aluno section.minhas-aulas .aulas {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: start;
+    align-items: center;
+}
+
+main.area-aluno section.minhas-aulas .aulas table {
+    border: 1px solid black;
+    border-radius: 2rem;
+    width: 40%;
+    background-color: #fff9da;
+    padding: 1rem;
+}
+
+main.area-aluno section.minhas-aulas .aulas table th,
+main.area-aluno section.minhas-aulas .aulas table td {
+    border: .1rem solid black;
+    padding: 1rem;
+    font-size: 1.2rem;
+}
+
+.menu {
     display: flex;
     flex-flow: row;
     justify-content: space-between;
@@ -60,10 +110,7 @@ header{
     display: none;
 }
 
-.sidebar{
-    position: absolute;
-    top: 5rem;
-    left: -1rem;
+.sidebar {
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -72,7 +119,7 @@ header{
     max-height: 100%;
     padding: 1rem;
     background: #741a1a;
-    background-size: 800%;
+    align-self: stretch;
 }
 
 #check:checked ~ .sidebar{
@@ -140,4 +187,3 @@ header{
     width: 100%;
     height: 100%;
 }
-

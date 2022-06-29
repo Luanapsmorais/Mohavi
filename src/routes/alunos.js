@@ -27,17 +27,7 @@ router.post('/login', AlunosController.autenticar);
 // Editar aluno
 router.get('/editar/:id', AlunosController.formEditar);
 
-
-
-
-
-
 // Deslogar usuário
 router.get('/logout', AlunosController.logout);
 
-
-
 module.exports = router;
-
-
-

@@ -11,7 +11,6 @@ main{
   align-items: center;
 }
 
-
 .cadastro-aluno{
   width: 50%;
   display: flex;
@@ -114,7 +113,6 @@ button:hover{
 
 
 footer.footer{
- height: 100%;
   background: linear-gradient(to right, rgb(116, 26, 26), rgb(17, 54, 71));
   position:relative;
 }
@@ -125,8 +123,6 @@ footer.footer .container {
 }
 
 footer.footer .container > div{
-  flex-grow: 1;
-  flex-basis: 0;
   padding: 3rem 0.9rem;
 }
 
@@ -151,12 +147,16 @@ footer h2{
 
 .contato{
   margin-left: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
 }
 
 .contato i{
   height: 10px;
   width: 10px;
- margin-right: 12px;
+  margin-right: 12px;
   color: white;
 }
 
@@ -325,7 +325,6 @@ footer h2{
   }
 
   footer.footer{
-   height: 100%;
     background: linear-gradient(to right, rgb(116, 26, 26), rgb(17, 54, 71));
     position:relative;
   }
