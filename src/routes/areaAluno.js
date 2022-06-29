@@ -1,8 +1,12 @@
 var express = require('express');
 var router = express.Router();
+const auth = require('../middlewares/auth')
 
-router.get('/', function(req, res, next) {
-    res.render('area-aluno', { title: 'Área do Aluno' });
+router.get('/', auth, function(req, res, next) {
+
+    res.render('area-aluno', { title: 'Área do Aluno', aluno: req.session.aluno });
   });
+
+  
   
   module.exports = router;

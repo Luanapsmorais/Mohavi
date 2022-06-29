@@ -1,27 +1,35 @@
-const { uuid } = require('uuidv4');
-const path = require('path');
-const fs = require('fs');
-
-module.exports=(sequelize, dataTypes)=>{
+module.exports = (sequelize, dataTypes) => {
     const Aluno = sequelize.define('Aluno', {
         id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
             allowNull: false
-        }, 
+        },
+        matricula: {
+            type: dataTypes.STRING,
+            allowNull: false
+        },
         nome: {
             type: dataTypes.STRING,
             allowNull: false
-        }, 
+        },
         sobrenome: {
             type: dataTypes.STRING,
             allowNull: false
-        }, 
-        matricula: {
+        },
+        data_nascimento: {
+            type: dataTypes.DATEONLY,
+            allowNull: false
+        },
+        altura: {
             type: dataTypes.INTEGER,
             allowNull: false
-        }, 
+        },
+        peso: {
+            type: dataTypes.INTEGER,
+            allowNull: false
+        },
         email: {
             type: dataTypes.STRING,
             allowNull: false
@@ -30,18 +38,10 @@ module.exports=(sequelize, dataTypes)=>{
             type: dataTypes.STRING,
             allowNull: false
         },
-        data_nascimento: {
-            type: dataTypes.DATE,
+        senha: {
+            type: dataTypes.STRING,
             allowNull: false
-        },
-        altura: {
-            type: dataTypes.DECIMAL,
-            allowNull: false
-        },
-        peso: {
-            type: dataTypes.DECIMAL,
-            allowNull: false
-        },
+        }
     }, {
         tableName: 'alunos',
         timestamps: false

@@ -10,10 +10,9 @@ var session = require('express-session');
 
 
 var indexRouter = require('./src/routes/index');
-var usersRouter = require('./src/routes/users');
+var alunosRouter = require('./src/routes/alunos');
 var areaAlunoRouter = require('./src/routes/areaAluno');
 var loginRouter = require('./src/routes/login');
-var cadastroAlunoRouter = require('./src/routes/cadastroAluno');
 var aulasRouter = require('./src/routes/aulas');
 
 var app = express();
@@ -37,10 +36,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/alunos', alunosRouter);
 app.use('/area-aluno', areaAlunoRouter);
 app.use('/login', loginRouter);
-app.use('/cadastroAluno', cadastroAlunoRouter);
 app.use('/aulas', aulasRouter);
 
 
