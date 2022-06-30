@@ -1,0 +1,92 @@
+
+<%- include('partials/headerAreaAluno') %>
+
+
+<main>
+<div>
+    <h1 id="titulo">Perfil</h1>
+    <p id="subtitulo">Suas informações</p>
+    <br>
+  </div>
+
+  <section class="cadastro-aluno">
+
+    <% if (erros) { %>
+      <ul class="erros">
+        <% erros.forEach(erro=> { %>
+          <li>
+            <%= erro.msg %>
+          </li>
+          <% }) %>
+      </ul>
+      <% }  %>
+
+    <form class="card-cadastro" enctype="multipart/form-data" action="/alunos/cadastro" method="POST">
+
+      <div class="card-content-cadastro">
+        <div class="card-content-area">
+          <label for="nome">Nome</label>
+          <input type="text" name="nome" value=" <%= aluno.nome %> "  placeholder="nome">
+        </div>
+
+        <div class="card-content-area">
+          <label for="sobrenome">sobrenome</label>
+          <input type="text" name="sobrenome" value=" <%= aluno.sobrenome %> " placeholder="sobrenome">
+        </div>
+
+
+            <div class="card-content-area">
+              <label for="dataNasc">Data de nascimento</label>
+              <input type="date" maxlength="10"  name="dataNasc" value=" <%= aluno.data_nascimento %> " placeholder="dataNasc">
+            </div>
+
+              <div class="card-content-area">
+                <label for="altura">Altura</label>
+                <input type="number" name="altura" value=" <%= aluno.altura %> " placeholder="altura">
+              </div>
+
+              <div class="card-content-area">
+                <label for="peso">Peso</label>
+                <input type="text" name="peso" value=" <%= aluno.peso %> " placeholder="peso">
+              </div>
+
+              <div class="card-content-area">
+                <label for="email">Email</label>
+                <input type="email" name="email" value=" <%= aluno.email %> " placeholder="email">
+              </div>
+
+              <div class="card-content-area">
+                <label for="telefone">telefone</label>
+                <input type="text" name="telefone" value=" <%= aluno.telefone %> " placeholder="telefone">
+              </div>
+
+              <div class="card-content-area">
+                <label for="senha">Senha</label>
+                <input type="password" name="senha"  placeholder="senha">
+              </div>
+
+              <div class="card-content-area">
+                <label for="confirmarSenha">Confirme sua Senha</label>
+                <input type="password" name="confirmarSenha"  placeholder="Confirme sua Senha">
+              </div>
+
+              <input type="file" id="arquivo" name="arquivo" value="arquivo">
+              <label for="arquivo"> Insira imagem desejada.</label>
+
+
+            </div>
+
+            <div class="card-footer">
+              <button type="submit"  class="submit">Alterar</button>
+            </div>
+
+            <div class="card-footer">
+              <a href="/area-aluno" class="submit">Voltar</button>
+            </div>
+    </form>
+  </section>
+
+</main>
+
+
+  <%- include('partials/footer') %>

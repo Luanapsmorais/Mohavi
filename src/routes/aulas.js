@@ -1,18 +1,21 @@
 const express = require ('express');
 const router = express.Router();
+const validadorCadastroAulas = require('../middlewares/validadorCadastroAulas');
 const AulasController = require('../controllers/AulasController');
-const upload = require('../middlewares/multer');
 const auth = require('../middlewares/auth');
+const multer = require('../middlewares/multer')
 
-router.get('/cadastrar', AulasController.editar);
-router.post('/cadastrar', upload.single('aula-img'), AulasController.criar);
+router.get('/', AulasController.read);
+router.post('/cadastrar', multer.single('aula-img'), validadorCadastroAulas, AulasController.create);
+router.get('/cadastrar/:id', AulasController.edit);
+router.post('/cadastrar-aulas', AulasController.store);
 
-router.get('/', AulasController.index);
-router.get('/admin', auth, AulasController.admin);
+// router.get('/admin', auth, AulasController.admin);
 
-router.get('/editar/:id', AulasController.editar);
-router.put('/editar/:id', upload.single('aula-img'), AulasController.atualizar);
+router.put('/editar/:id', multer.single('aula-img'), validadorCadastroAulas, AulasController.update);
+router.get('/editar/:id', AulasController.edit);
 
-router.delete('/deletar/:id', AulasController.deletar);
+router.delete('/deletar/:id', AulasController.delete);
+
 
 module.exports = router; 

@@ -1,10 +1,9 @@
 const { uuid } = require('uuidv4');
 const path = require('path');
 const fs = require('fs');
-const { createDeflate } = require('zlib');
 
 module.exports=(sequelize, dataTypes)=>{
-    const Aula = sequelize.define('Aula', {
+    const Personal = sequelize.define('Personal', {
         id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
@@ -15,24 +14,32 @@ module.exports=(sequelize, dataTypes)=>{
             type: dataTypes.STRING,
             allowNull: false
         }, 
-        valor: {
-            type: dataTypes.DECIMAL,
+        sobrenome: {
+            type: dataTypes.STRING,
             allowNull: false
         }, 
-        descricao: {
+        especialidade: {
+            type: dataTypes.STRING,
+            allowNull: false
+        },
+        registro_cresf: {
+            type: dataTypes.INTEGER,
+            allowNull: false
+        },
+        telefone: {
             type: dataTypes.STRING,
             allowNull: false
         },
     }, {
-        tableName: 'aulas',
+        tableName: 'personais',
         timestamps: false
     });
-    Aula.associate = (models)=>{
+    /*Aula.associate = (models)=>{
         Aula.hasMany(models.Turno, {
-            foreignKey: 'id',
+            foreignKey: 'turnos_id',
             as:'turno'
         })
-    }
+    }*/
 
-    return Aula;
+    return Personal;
 }
